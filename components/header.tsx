@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
-import { Menu, X, Search, Sparkles } from "lucide-react"
+import { Menu, X, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -27,14 +28,18 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-900/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <Sparkles className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold">AI Tools Hub</span>
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <Image
+              src="/logo.svg"
+              alt="AI Tools Hub Logo"
+              width={140}
+              height={45}
+              priority
+              className="h-auto w-auto"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
